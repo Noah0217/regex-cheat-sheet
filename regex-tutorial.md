@@ -32,6 +32,21 @@ Examples
 - `$` matches `f` in abc/ndef
 
 ### Quantifiers
+Quantifiers specify how many instances of a character, group, or character class must be present in the input for a match to be found.
+- *(asterisk) - Matches zero or more times
+- +(plus) - Matches one or more times
+- ?(question) - Match zero one or more time.
+- {n} - Match exactly n times.
+- {n,} - Match at least n times.
+- {n,m} - Match from n to m times.
+
+Examples
+- `*` matches `def` ghi in abc def ghi jkl
+- `+` matches `def` ghi in abc def ghi jkl
+- abc`?` matches `abc` or `ab`
+- `a{3}` matches `aaa`
+- `a{2,}` matches `aaaaa` in aaaaa
+- `a{2,4}` matches `aaaa` `aaa` or `aa`
 
 ### OR Operator
 
