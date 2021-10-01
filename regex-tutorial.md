@@ -119,10 +119,15 @@ Examples
 
 
 ### Look-ahead and Look-behind
+Lookahead and look-behind, collectively called “look-around”, are zero-length assertions just like the start and end of line, and start and end of word anchors.
+- `q(?=u)` - matches a `q` that is followed by a `u`, without making the `u` part of the match.
+- `(?<!a)b` - matches `a` `b` that is not preceded by an `a`, using negative lookbehind.
 
 ## Author
 
-A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+Hi my names Noah Mejia and feel free to check out my other projects.
+
+GitHub Profile - https://github.com/Noah0217
 
 ### References
 - https://www.regular-expressions.info/refrepeat.html
