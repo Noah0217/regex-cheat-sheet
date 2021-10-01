@@ -111,6 +111,12 @@ Examples
 - `\B` - matches at every position where `\b` does not.
 
 ### Back-references
+A back-reference in a regular expression identifies a previously matched group and looks for exactly the same text again. A simple example of the use of back-references is when you wish to look for adjacent, repeated words in some text. The first part of the match could use a pattern that extracts a single word.
+
+Examples
+- `\1` - matches the exact same test that was matched by the first capturing group.
+- `\2\1` - matches the same text that was matched by the other.
+
 
 ### Look-ahead and Look-behind
 
