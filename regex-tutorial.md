@@ -89,6 +89,12 @@ Examples
 - `x|y` - Matches either `x` or `y`.
 
 ### Bracket Expressions
+A bracket expression is either a matching list expression or a non-matching list expression. It consists of one or more expressions: ordinary characters, collating elements, collating symbols, equivalence classes, character classes, or range expressions.
+
+Examples
+- `[]` - matches `abc` in a, b, or c
+- `[^]` - matches `a-z`
+- `[[::]]` - matches any character `a-z`
 
 ### Greedy and Lazy Match
 
