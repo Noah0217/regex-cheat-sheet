@@ -104,6 +104,11 @@ Examples
 - `?` - matches any character after the quantifier.
 
 ### Boundaries
+A boundary, in most regex dialects, is a position between \w and \W (non-word char), or at the beginning or end of a string if it begins or ends (respectively) with a word character ( [0-9A-Za-z_] ). So, in the string "-12" , it would match before the 1 or after the 2. The dash is not a word character.
+
+Examples
+- `\b` - matches at a position that is called a “word boundary”. This match is zero-length.
+- `\B` - matches at every position where `\b` does not.
 
 ### Back-references
 
