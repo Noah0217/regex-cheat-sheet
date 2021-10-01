@@ -59,15 +59,22 @@ Examples
 
 ### Character Classes
 With a “character class”, also called “character set”, you can tell the regex engine to match only one out of several characters. Simply place the characters you want to match between square brackets. If you want to match an a or an e, use [ae]. You could use this in gr[ae]y to match either gray or grey.
-- \d - matches any digit from 0-9
-- \D - matches any non-digit 
-- \s - matches any whitespace character (spaces, tabs, etc)
-- \S - matches all but \s
-- \w - matches any character from a-z
-- \W - matches all but \w
-- . - matches any character
+- `\d` - matches any digit from `0-9`
+- `\D` - matches any non-digit 
+- `\s` - matches any whitespace character (spaces, tabs, etc)
+- `\S` - matches all but `\s`
+- `\w` - matches any character from `a-z`
+- `\W` - matches all but `\w`
+- `.` - matches any character
 
 ### Flags
+By default, the dot character in a regular expression matches everything, but newline characters. To get it to match newline characters as well, we are given the s flag.
+- `i` - With this flag the search is case-insensitive: no difference between A and a
+- `g` - With this flag the search looks for all matches, without it – only the first match is returned.
+- `m` - Multiline mode (covered in the chapter Multiline mode of anchors ^ $, flag "m").
+- `s` - Enables “dotall” mode, that allows a dot . to match newline character \n.
+- `u` - Enables full Unicode support. The flag enables correct processing of surrogate pairs.
+- `y` - “Sticky” searching at the exact position in the text/
 
 ### Grouping and Capturing
 
