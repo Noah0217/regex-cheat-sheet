@@ -58,6 +58,14 @@ Examples
 - `[]` matches `abc` in a, b , or c
 
 ### Character Classes
+With a “character class”, also called “character set”, you can tell the regex engine to match only one out of several characters. Simply place the characters you want to match between square brackets. If you want to match an a or an e, use [ae]. You could use this in gr[ae]y to match either gray or grey.
+- \d - matches any digit from 0-9
+- \D - matches any non-digit 
+- \s - matches any whitespace character (spaces, tabs, etc)
+- \S - matches all but \s
+- \w - matches any character from a-z
+- \W - matches all but \w
+- . - matches any character
 
 ### Flags
 
