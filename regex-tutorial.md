@@ -49,6 +49,13 @@ Examples
 - `a{2,4}` matches `aaaa` `aaa` or `aa`
 
 ### OR Operator
+Alternatives match one of a choice of regular expressions: if you put the character(s) representing the alternation operator between any two regular expressions a and b , the<br> result matches the union of the strings that a and b match.
+- |(bar) - Matches the union of the strings that a and b match.
+- [](bracket) - The regex [a-z] will match any letter a through z.
+
+Examples
+- `|` matches `(t|T)` to t ot T
+- `[]` matches `abc` in a, b , or c
 
 ### Character Classes
 
@@ -69,3 +76,7 @@ Examples
 ## Author
 
 A short section about the author with a link to the author's GitHub profile (replace with your information and a link to your profile)
+
+### References
+- https://www.regular-expressions.info/refrepeat.html
+- https://www.javascripttutorial.net/regular-expression-quantifiers/
