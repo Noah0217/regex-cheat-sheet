@@ -97,6 +97,11 @@ Examples
 - `[[::]]` - matches any character `a-z`
 
 ### Greedy and Lazy Match
+'Greedy' means match longest possible string. 'Lazy' means match shortest possible string. For example, the greedy h. +l matches 'hell' in 'hello' but the lazy h.
+
+Examples
+- `\d+` - matches all possible digits.
+- `?` - matches any character after the quantifier.
 
 ### Boundaries
 
