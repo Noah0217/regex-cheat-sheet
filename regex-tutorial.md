@@ -59,6 +59,8 @@ Examples
 
 ### Character Classes
 With a “character class”, also called “character set”, you can tell the regex engine to match only one out of several characters. Simply place the characters you want to match between square brackets. If you want to match an a or an e, use [ae]. You could use this in gr[ae]y to match either gray or grey.
+
+Examples
 - `\d` - matches any digit from `0-9`
 - `\D` - matches any non-digit 
 - `\s` - matches any whitespace character (spaces, tabs, etc)
@@ -69,6 +71,8 @@ With a “character class”, also called “character set”, you can tell the 
 
 ### Flags
 By default, the dot character in a regular expression matches everything, but newline characters. To get it to match newline characters as well, we are given the s flag.
+
+Examples
 - `i` - With this flag the search is case-insensitive: no difference between A and a
 - `g` - With this flag the search looks for all matches, without it – only the first match is returned.
 - `m` - Multiline mode (covered in the chapter Multiline mode of anchors ^ $, flag "m").
@@ -77,6 +81,12 @@ By default, the dot character in a regular expression matches everything, but ne
 - `y` - “Sticky” searching at the exact position in the text/
 
 ### Grouping and Capturing
+Capturing groups are a way to treat multiple characters as a single unit. They are created by placing the characters to be grouped inside a set of parentheses. For example, the regular expression (dog) creates a single group containing the letters "d", "o", and "g".
+
+Examples
+- `()` - `(abc){3}` matches `abcabcabc` first group matches `abc`.
+- `(?:x)` -  Matches `x` but does not remember the match.
+- `x|y` - Matches either `x` or `y`.
 
 ### Bracket Expressions
 
