@@ -4,21 +4,15 @@ A document that allows the user to learn the basics of regex (regular expression
 
 ## Summary
 
-Briefly summarize the regex you will be describing and what you will explain. Include a code snippet of the regex. Replace this text with your summary.
+In this tutorial I will be demonstrating the regex to check for an existing IP address.<br> The regex will look like the following ^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$ Heres an example of an IP address 192.158.1.38
 
 ## Table of Contents
 
 - [Anchors](#anchors)
 - [Quantifiers](#quantifiers)
-- [OR Operator](#or-operator)
 - [Character Classes](#character-classes)
-- [Flags](#flags)
-- [Grouping and Capturing](#grouping-and-capturing)
 - [Bracket Expressions](#bracket-expressions)
 - [Greedy and Lazy Match](#greedy-and-lazy-match)
-- [Boundaries](#boundaries)
-- [Back-references](#back-references)
-- [Look-ahead and Look-behind](#look-ahead-and-look-behind)
 
 ## Regex Components
 
@@ -28,100 +22,39 @@ Anchors belong to the family of regex tokens that don't match any characters.
 - $(dollar) - Matches at the end of the string the regex pattern is applied to.
 
 Examples
-- `^` matches `a` in abc/ndef
-- `$` matches `f` in abc/ndef
+- `^` matches `^`(?:[0-9]{1,3}\.){3}[0-9]{1,3}$
+- `$` matches ^(?:[0-9]{1,3}\.){3}[0-9]{1,3}`$`
 
 ### Quantifiers
 Quantifiers specify how many instances of a character, group, or character class must be present in the input for a match to be found.
-- *(asterisk) - Matches zero or more times
-- +(plus) - Matches one or more times
 - ?(question) - Match zero one or more time.
-- {n} - Match exactly n times.
-- {n,} - Match at least n times.
-- {n,m} - Match from n to m times.
+- {3} - Match exactly 3 times.
+- {1,3} - Match from 1 to 3 times.
 
 Examples
-- `*` matches `def` ghi in abc def ghi jkl
-- `+` matches `def` ghi in abc def ghi jkl
-- abc`?` matches `abc` or `ab`
-- `a{3}` matches `aaa`
-- `a{2,}` matches `aaaaa` in aaaaa
-- `a{2,4}` matches `aaaa` `aaa` or `aa`
-
-### OR Operator
-Alternatives match one of a choice of regular expressions: if you put the character(s) representing the alternation operator between any two regular expressions a and b , the<br> result matches the union of the strings that a and b match.
-- |(bar) - Matches the union of the strings that a and b match.
-- [](bracket) - The regex [a-z] will match any letter a through z.
-
-Examples
-- `|` matches `(t|T)` to t ot T
-- `[]` matches `abc` in a, b , or c
+- `?` matches ^(`?`:[0-9]{1,3}\.){3}[0-9]{1,3}$ 
+- `{3}` matches ^(?:[0-9]{1,3}\.)`{3}`[0-9]{1,3}$
+- `{1,3}` matches ^(?:[0-9]`{1,3}`\.){3}[0-9]`{1,3}`$
 
 ### Character Classes
 With a “character class”, also called “character set”, you can tell the regex engine to match only one out of several characters. Simply place the characters you want to match between square brackets. If you want to match an a or an e, use [ae]. You could use this in gr[ae]y to match either gray or grey.
 
 Examples
-- `\d` - matches any digit from `0-9`
-- `\D` - matches any non-digit 
-- `\s` - matches any whitespace character (spaces, tabs, etc)
-- `\S` - matches all but `\s`
-- `\w` - matches any character from `a-z`
-- `\W` - matches all but `\w`
-- `.` - matches any character
-
-### Flags
-By default, the dot character in a regular expression matches everything, but newline characters. To get it to match newline characters as well, we are given the s flag.
-
-Examples
-- `i` - With this flag the search is case-insensitive: no difference between A and a
-- `g` - With this flag the search looks for all matches, without it – only the first match is returned.
-- `m` - Multiline mode (covered in the chapter Multiline mode of anchors ^ $, flag "m").
-- `s` - Enables “dotall” mode, that allows a dot . to match newline character \n.
-- `u` - Enables full Unicode support. The flag enables correct processing of surrogate pairs.
-- `y` - “Sticky” searching at the exact position in the text/
-
-### Grouping and Capturing
-Capturing groups are a way to treat multiple characters as a single unit. They are created by placing the characters to be grouped inside a set of parentheses. For example, the regular expression (dog) creates a single group containing the letters "d", "o", and "g".
-
-Examples
-- `()` - `(abc){3}` matches `abcabcabc` first group matches `abc`.
-- `(?:x)` -  Matches `x` but does not remember the match.
-- `x|y` - Matches either `x` or `y`.
+- `\d` - matches any digit from 0-9 ^(?:[`0-9`]{1,3}\.){3}[`0-9`]{1,3}$
+- `.` - matches any character ^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$
 
 ### Bracket Expressions
 A bracket expression is either a matching list expression or a non-matching list expression. It consists of one or more expressions: ordinary characters, collating elements, collating symbols, equivalence classes, character classes, or range expressions.
 
 Examples
-- `[]` - matches `abc` in a, b, or c
-- `[^]` - matches `a-z`
-- `[[::]]` - matches any character `a-z`
+- `[]` - matches ^(?:`[0-9]{1,3}\.){3}[0-9]`{1,3}$
 
 ### Greedy and Lazy Match
 'Greedy' means match longest possible string. 'Lazy' means match shortest possible string. For example, the greedy h. +l matches 'hell' in 'hello' but the lazy h.
 
 Examples
-- `\d+` - matches all possible digits.
-- `?` - matches any character after the quantifier.
-
-### Boundaries
-A boundary, in most regex dialects, is a position between \w and \W (non-word char), or at the beginning or end of a string if it begins or ends (respectively) with a word character ( [0-9A-Za-z_] ). So, in the string "-12" , it would match before the 1 or after the 2. The dash is not a word character.
-
-Examples
-- `\b` - matches at a position that is called a “word boundary”. This match is zero-length.
-- `\B` - matches at every position where `\b` does not.
-
-### Back-references
-A back-reference in a regular expression identifies a previously matched group and looks for exactly the same text again. A simple example of the use of back-references is when you wish to look for adjacent, repeated words in some text. The first part of the match could use a pattern that extracts a single word.
-
-Examples
-- `\1` - matches the exact same test that was matched by the first capturing group.
-- `\2\1` - matches the same text that was matched by the other.
-
-
-### Look-ahead and Look-behind
-Lookahead and look-behind, collectively called “look-around”, are zero-length assertions just like the start and end of line, and start and end of word anchors.
-- `q(?=u)` - matches a `q` that is followed by a `u`, without making the `u` part of the match.
-- `(?<!a)b` - matches `a` `b` that is not preceded by an `a`, using negative lookbehind.
+- `\d+` - matches all possible digits. ^(?:[0-9]{1,3}\.){3}[0-9]{1,3}$
+- `?` - matches any character after the quantifier. ^(`?`:[0-9]{1,3}\.){3}[0-9]{1,3}$
 
 ## Author
 
